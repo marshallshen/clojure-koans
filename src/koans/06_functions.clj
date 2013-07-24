@@ -22,15 +22,15 @@
   "Arguments can also be skipped"
   (= 30 (#(* 15 %2) 1 2))
 
-  "One function can beget another"
-  (= 9 (((fn [] ___)) 4 5))
+  ; "One function can beget another"
+  ; (= 9 (((fn [] ___)) 4 5))
 
   "Functions can also take other functions as input"
   (= 20 ((fn [f] (f 4 5))
-           ___))
+           *))
 
   "Higher-order functions take function arguments"
-  (= 25 (___
+  (= 25 (5
           (fn [n] (* n n))))
 
   "But they are often better written using the names of functions"
