@@ -8,7 +8,7 @@
   (= 81 (square 9))
 
   "Functions are usually defined before they are used"
-  (= 20 (multiply-by-ten 2))
+  (= (* 10 2) (multiply-by-ten 2))
 
   "But they can also be defined inline"
   (= 10 ((fn [n] (* 5 n)) 2))
@@ -22,16 +22,16 @@
   "Arguments can also be skipped"
   (= 30 (#(* 15 %2) 1 2))
 
-  ; "One function can beget another"
-  ; (= 9 (((fn [] ___)) 4 5))
+  "One function can beget another"
+  (= 9 (((fn [] (fn [a b](+ a b)))) 4 5))
 
   "Functions can also take other functions as input"
   (= 20 ((fn [f] (f 4 5))
            *))
 
   "Higher-order functions take function arguments"
-  (= 25 (5
+  (= 25 ( (fn [f](f 5))
           (fn [n] (* n n))))
 
   "But they are often better written using the names of functions"
-  (= 25 (___ square)))
+  (= 25 ((fn [f] (f 5)) square)))
