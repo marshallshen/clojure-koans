@@ -27,7 +27,7 @@
 
   "Functions passed to alter may depend on the data in the ref"
   (= 20 (do
-          (dosync (alter the-world ___))))
+          (dosync (alter the-world (fn [x] 20)))))
 
   "Two worlds are better than one"
   (= ["Real Jerry" "Bizarro Jerry"]
